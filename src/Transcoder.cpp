@@ -139,7 +139,7 @@ namespace LIRS {
 
         LOG(DEBUG) << "Using Video4Linux2 API for decoding raw data";
 
-        AVInputFormat *inputFormat = av_find_input_format("v4l2"); // using Video4Linux API for capturing
+        AVInputFormat *inputFormat = av_find_input_format("avfoundation"); // using Video4Linux API for capturing
 
         auto frameResolutionStr = utils::concatParams({config.get_frame_width(), config.get_frame_height()}, "x");
         auto framerateStr = utils::concatParams({(size_t) frameRate.num, (size_t) frameRate.den}, "/");
@@ -301,8 +301,8 @@ namespace LIRS {
         filterFrame = av_frame_alloc();
 
         // create buffer source and sink
-        AVFilter *bufferSrc = avfilter_get_by_name("buffer");
-        AVFilter *bufferSink = avfilter_get_by_name("buffersink");
+        const AVFilter *bufferSrc = avfilter_get_by_name("buffer");
+        const AVFilter *bufferSink = avfilter_get_by_name("buffersink");
 
         AVFilterInOut *outputs = avfilter_inout_alloc();
         AVFilterInOut *inputs = avfilter_inout_alloc();

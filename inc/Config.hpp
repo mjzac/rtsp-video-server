@@ -13,8 +13,8 @@
 namespace po = boost::program_options;
 
 #define RARE_CAM "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:3:1.0-video-index0"
-#define LEFT_CAM "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:4:1.0-video-index0"
-#define RIGHT_CAM "/dev/v4l/by-path/pci-0000:00:1a.0-usb-0:1.3:1.0-video-index0"
+#define LEFT_CAM "0:0"
+#define RIGHT_CAM "0:0"
 #define ZOOM_CAM "/dev/v4l/by-path/pci-0000:00:14.0-usb-0:2:1.0-video-index0"
 
 namespace LIRS {
@@ -23,11 +23,11 @@ namespace LIRS {
 
     public:
 
-        constexpr static unsigned int DEFAULT_STREAMING_FRAMERATE = 5;
+        constexpr static unsigned int DEFAULT_STREAMING_FRAMERATE = 25;
 
-        constexpr static unsigned int DEFAULT_FRAMERATE = 15;
+        constexpr static unsigned int DEFAULT_FRAMERATE = 30;
 
-        constexpr static unsigned int DEFAULT_FRAME_WIDTH = 744;
+        constexpr static unsigned int DEFAULT_FRAME_WIDTH = 640;
 
         constexpr static unsigned int DEFAULT_FRAME_HEIGHT = 480;
 
@@ -35,7 +35,7 @@ namespace LIRS {
 
         constexpr static unsigned int DEFAULT_BITRATE_KBPS = 100;
 
-        constexpr static char const *DEFAULT_PIX_FORMAT = "bayer_grbg8";
+        constexpr static char const *DEFAULT_PIX_FORMAT = "nv12";
 
         // =========== Codec settings ================= //
 

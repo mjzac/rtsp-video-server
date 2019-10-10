@@ -12,7 +12,7 @@
 # set the Live555_SRC_DIR
 # ==============================================
 
-set(Live555_SRC_DIR /usr/lib/live)
+set(Live555_SRC_DIR $ENV{Live555Dir})
 set(Live555_LIBRARIES "")
 set(Live555_INCLUDE_DIRS "")
 set(Live555_FOUND FALSE)
